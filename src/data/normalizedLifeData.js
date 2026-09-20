@@ -1,0 +1,2 @@
+import {loadHousehold} from './householdTransactions'; import {loadIndia} from './indiaTransactions'; import {loadSpotify} from './spotifyHistory';
+export async function loadLife(){let result=await Promise.allSettled([loadHousehold(),loadIndia(),loadSpotify()]);let missing=result.filter(x=>x.status==='rejected').map(x=>x.reason.message);let records=result.flatMap(x=>x.status==='fulfilled'?x.value:[]);return {records,missing}}

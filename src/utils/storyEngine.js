@@ -1,0 +1,1 @@
+export function makeStory(thread){let r=thread.records;return {headline:thread.title,body:`These ${r.length} records sit close together in time. Music, spending and daily life may be part of the same period—not separate receipts.`,steps:r.map((x,i)=>({label:`CHAPTER 0${i+1}`,record:x}))}}

@@ -1,0 +1,1 @@
+export function spendingSummary(records){let spend=records.filter(r=>r.source!=='spotify'&&r.amount>0);return {count:spend.length,total:spend.reduce((n,r)=>n+r.amount,0),byCategory:spend.reduce((a,r)=>({...a,[r.category]:(a[r.category]||0)+r.amount}),{})}}

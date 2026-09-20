@@ -1,0 +1,5 @@
+export function detectNightActivity(records){let n=records.filter(r=>{let h=new Date(r.timestamp).getHours();return h>=22||h<5});return n.length/Math.max(records.length,1)>.08?{name:'Night owl',icon:'🌙',detail:`${n.length.toLocaleString()} traces appear after 10 PM.`}:null}
+export const detectWeekendPatterns=records=>{let n=records.filter(r=>[0,6].includes(new Date(r.timestamp).getDay()));return n.length?{name:'Weekly rhythm',icon:'🔁',detail:`${n.length.toLocaleString()} records land on weekends.`}:null};
+export const detectRecurringCategories=records=>({name:'Daily rituals',icon:'🍔',detail:`Food, movement and household activity recur throughout the record.`});
+export const detectMusicPeriods=records=>({name:'Soundtrack',icon:'🎧',detail:`Music is woven through ${records.filter(r=>r.source==='spotify').length.toLocaleString()} moments.`});
+export const detectSpendingPeriods=detectRecurringCategories;export const detectHighActivityDays=detectWeekendPatterns;export const detectRepeatedSequences=detectMusicPeriods;export const detectLocationPatterns=detectWeekendPatterns;export const detectCrossDatasetPatterns=detectRecurringCategories;

@@ -1,0 +1,1 @@
+import{useMemo}from'react';import{detectNightActivity,detectWeekendPatterns,detectMusicPeriods}from'../utils/patternEngine';export function usePatterns(records){return useMemo(()=>[detectNightActivity(records),detectWeekendPatterns(records),detectMusicPeriods(records)].filter(Boolean),[records])}

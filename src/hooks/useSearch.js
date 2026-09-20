@@ -1,0 +1,1 @@
+import{useMemo}from'react';export function useSearch(records,query){return useMemo(()=>!query?records:records.filter(r=>[r.title,r.description,r.category,r.location,r.metadata.artist].join(' ').toLowerCase().includes(query.toLowerCase())),[records,query])}

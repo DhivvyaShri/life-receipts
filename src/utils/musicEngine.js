@@ -1,0 +1,1 @@
+export function musicSummary(records){let music=records.filter(r=>r.source==='spotify'),played=music.reduce((n,r)=>n+r.metadata.msPlayed,0);return {sessions:music.length,listeningMs:played,skips:music.filter(r=>r.metadata.skipped).length,shuffle:music.filter(r=>r.metadata.shuffle).length}}

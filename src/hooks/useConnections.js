@@ -1,0 +1,1 @@
+import{useMemo}from'react';import{findTimeConnections,findDateConnections,findCategoryConnections}from'../utils/connectionEngine';export function useConnections(records){return useMemo(()=>[...findTimeConnections(records),...findDateConnections(records),...findCategoryConnections(records)],[records])}
